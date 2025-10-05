@@ -21,11 +21,19 @@ func main() {
 	var floor int
 	floor = 0
 
+	var basement_command int
+	basement_command = 0
+
 	for i := 0; i < len(instructions); i++ {
-		if string(instructions[i]) == "(" {
+		if instructions[i] == '(' {
 			floor = floor + 1
-		} else if string(instructions[i]) == ")" {
+		} else if instructions[i] == ')' {
 			floor = floor - 1
+		}
+
+		if (floor == -1) && (basement_command == 0) {
+			basement_command = i + 1
+			fmt.Println(basement_command)
 		}
 	}
 
