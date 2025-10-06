@@ -1,20 +1,16 @@
-package main
+package aoc_2015
 
 import (
 	"fmt"
-	"log"
 	"os"
 )
 
-func main() {
+func Run_which_floor() {
 
 	var instructions string
 
 	content, err := os.ReadFile("floors_instructions.txt")
-
-	if err != nil {
-		log.Fatal(err)
-	}
+	check_error(err)
 
 	instructions = string(content)
 
@@ -24,7 +20,7 @@ func main() {
 	var basement_command int
 	basement_command = 0
 
-	for i := 0; i < len(instructions); i++ {
+	for i := range len(instructions) {
 		if instructions[i] == '(' {
 			floor = floor + 1
 		} else if instructions[i] == ')' {
