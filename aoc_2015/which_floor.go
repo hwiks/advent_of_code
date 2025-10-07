@@ -9,7 +9,7 @@ func Run_which_floor() {
 
 	var instructions string
 
-	content, err := os.ReadFile("floors_instructions.txt")
+	content, err := os.ReadFile("aoc_2015/floors_instructions.txt")
 	check_error(err)
 
 	instructions = string(content)
