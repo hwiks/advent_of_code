@@ -35,6 +35,15 @@ func get_smallest_area(sizes []int) int {
 	return (two_smallest[0] * two_smallest[1])
 }
 
+func get_ribbon_len(sizes []int) int {
+	sort.Ints(sizes)
+	var volume int = sizes[0] * sizes[1] * sizes[2]
+
+	var two_smallest []int = sizes[:len(sizes)-1]
+
+	return 2*two_smallest[0] + 2*two_smallest[1] + volume
+}
+
 func Run_wrap_presents() {
 
 	var sizes []string
@@ -53,8 +62,8 @@ func Run_wrap_presents() {
 
 	presents_sizes.Close()
 
-	var all_area_needed int
-	all_area_needed = 0
+	var all_area_needed int = 0
+	var all_ribbon_needed int = 0
 
 	for _, line := range sizes {
 
@@ -64,8 +73,11 @@ func Run_wrap_presents() {
 
 		var area_needed int = 2*(sizes[0]*sizes[1]+sizes[0]*sizes[2]+sizes[1]*sizes[2]) + smallest_area
 		all_area_needed = all_area_needed + area_needed
+
+		all_ribbon_needed = all_ribbon_needed + get_ribbon_len(sizes)
 	}
 
 	fmt.Println(all_area_needed)
+	fmt.Println(all_ribbon_needed)
 
 }
