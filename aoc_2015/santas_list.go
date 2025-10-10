@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func extract_list(input_file_name string) []string {
+func extract_lines(input_file_name string) []string {
 
 	var list []string
 
@@ -112,7 +112,7 @@ func has_3vowels(child string) bool {
 
 func Run_santas_list(updated bool) {
 
-	var santas_list []string = extract_list("aoc_2015/santas_list.txt")
+	var santas_list []string = extract_lines("aoc_2015/santas_list.txt")
 
 	var nice_children []string
 
