@@ -25,7 +25,7 @@ func turn_on(lights [1000][1000]int, edges []int) [1000][1000]int {
 
 	for i := first[0]; i <= last[0]; i++ {
 		for j := first[1]; j <= last[1]; j++ {
-			lights[i][j] = 1
+			lights[i][j] = lights[i][j] + 1
 		}
 
 	}
@@ -40,7 +40,9 @@ func turn_off(lights [1000][1000]int, edges []int) [1000][1000]int {
 
 	for i := first[0]; i <= last[0]; i++ {
 		for j := first[1]; j <= last[1]; j++ {
-			lights[i][j] = 0
+			if lights[i][j] != 0 {
+				lights[i][j] = lights[i][j] - 1
+			}
 		}
 
 	}
@@ -54,11 +56,7 @@ func toggle(lights [1000][1000]int, edges []int) [1000][1000]int {
 
 	for i := first[0]; i <= last[0]; i++ {
 		for j := first[1]; j <= last[1]; j++ {
-			if lights[i][j] == 0 {
-				lights[i][j] = 1
-			} else if lights[i][j] == 1 {
-				lights[i][j] = 0
-			}
+			lights[i][j] = lights[i][j] + 2
 		}
 
 	}
@@ -89,9 +87,7 @@ func Run_lights() {
 
 	for i := range 1000 {
 		for j := range 1000 {
-			if lights[i][j] == 1 {
-				light_turned_on = light_turned_on + 1
-			}
+			light_turned_on = light_turned_on + lights[i][j]
 		}
 	}
 
