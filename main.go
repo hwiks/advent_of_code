@@ -12,6 +12,6 @@ func main() {
 	//  aoc_2015.Run_hashables()
 	//	var updated bool = true
 	//	aoc_2015.Run_santas_list(updated)
-	aoc_2015.Run_lights()
-
+	//	aoc_2015.Run_lights()
+	aoc_2015.Run_circuits()
 }
