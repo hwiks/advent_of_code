@@ -13,5 +13,6 @@ func main() {
 	//	var updated bool = true
 	//	aoc_2015.Run_santas_list(updated)
 	//	aoc_2015.Run_lights()
-	aoc_2015.Run_circuits()
+	//  aoc_2015.Run_circuits() //DOES NOT WORK YET
+	aoc_2015.Run_sleight()
 }
